@@ -11,11 +11,13 @@ describe package 'mongodb-org' do
   its('version') {should match /3\./}
 end
 
+# Run and enable ports
 describe service("mongod") do
   it { should be_running }
   it { should be_enabled }
 end
 
+# Look for ports
 describe port('0.0.0.0', 27017) do
   it { should be_listening }
 end
